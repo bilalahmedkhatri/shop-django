@@ -1,0 +1,6 @@
+Download image from any website from this command.
+curl -o "#1.jpg" https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/[1-50].jpg
+
+pip freeze > requirements.txt
+
+

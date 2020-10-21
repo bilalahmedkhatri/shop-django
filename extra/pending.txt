@@ -1,0 +1,13 @@
+image converter from here is a example:
+    https://pillow.readthedocs.io/en/stable/handbook/tutorial.html
+
+
+Upload app on github:
+
+
+Create image in Dockerfile.
+
+
+keyword generator available on GITHUB:
+    https://github.com/OliverBarbeau/YouTubeKeywordsData
+
