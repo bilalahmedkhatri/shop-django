@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '4ff64f9#h0+n+i%d*r^_-x@2ip=c=0(k8o+=6g^&i5myw=(p2-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-# ALLOWED_HOSTS = [ 'https://codeetech.herokuapp.com', '127.0.0.1' ]
+ALLOWED_HOSTS = [ 'storeclothe.herokuapp.com', '127.0.0.1' ]
 
 
 # Application definition
@@ -124,8 +124,17 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
