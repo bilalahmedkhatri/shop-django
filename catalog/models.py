@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-# Create your models here.
+from django.db.models import Model
+from django.shortcuts import reverse
 
 
 CATEGORY_CHOICES = (
@@ -27,12 +28,14 @@ class Item(models.Model):
     discount_price = models.IntegerField()
     slug = models.SlugField()
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
-    label = models.CharField(choices=LABEL_CHOICES, max_length=2)
+    label = models.CharField(choices=LABEL_CHOICES, max_length=1)
     description = models.TextField()
 
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse("catalog:product", kwargs={"slug": self.slug})
 
 class OrderItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -52,3 +55,13 @@ class Order(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+class SliderItem(models.Model):
+    titile = models.CharField(max_length=200)
+    descTitle = models.CharField(max_length=200)
+    description = models.CharField(max_length=200, blank=True)
+    pageLink = models.URLField()
+
+    def __str__(self):
+        return self.titile

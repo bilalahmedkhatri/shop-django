@@ -1,11 +1,14 @@
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from . views import home, checkout, product
+from . views import HomeView, checkout, ItemDetailView
+
+app_name = "catalog"
 
 urlpatterns = [
-    path("", home, name="home"),
+    path("", HomeView.as_view(), name="home"),
     path("checkout/", checkout, name="Checkout"),
-    path("product/", product, name="Product"),
+    path("product/<slug>/", ItemDetailView.as_view(), name="product"),
+    
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -6,5 +6,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', home, name="Home"),              //working fine
-    path("", include('catalog.urls'))
+    path("", include('catalog.urls', namespace="app_name"))
 ]
